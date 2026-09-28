@@ -1,0 +1,453 @@
+html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adan Mohamed (Shap Papaz) | Investigative Journalist & Political Analyst</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#070a12',
+                            card: '#0d1322',
+                            cardBorder: 'rgba(255, 255, 255, 0.08)',
+                            accent: '#00f2fe',
+                            emerald: '#00e676',
+                            purple: '#7928CA',
+                            blue: '#4facfe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Bagovi-style glassmorphism and subtle grid effects */
+        body {
+            background-color: #050811;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(79, 172, 254, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        .glass-card {
+            background: rgba(13, 19, 34, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 242, 254, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-emerald {
+            background: linear-gradient(135deg, #00f2fe 0%, #00e676 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .avatar-glow {
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.25);
+        }
+
+        .pill-badge {
+            background: rgba(0, 242, 254, 0.08);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-accent selection:text-black">
+
+    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-brand-dark/80 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-accent to-brand-blue flex items-center justify-center font-bold text-black font-heading text-lg group-hover:scale-105 transition-transform">
+                    SP
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-lg text-white tracking-wide block">SHAP PAPAZ</span>
+                    <span class="text-xs text-brand-accent tracking-widest uppercase font-mono block -mt-1">Press & Media</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="text-gray-300 hover:text-brand-accent transition-colors">Overview</a>
+                <a href="#career" class="text-gray-300 hover:text-brand-accent transition-colors">Early Career</a>
+                <a href="#pillars" class="text-gray-300 hover:text-brand-accent transition-colors">Core Pillars</a>
+                <a href="#digital" class="text-gray-300 hover:text-brand-accent transition-colors">Digital Impact</a>
+                <a href="#reception" class="text-gray-300 hover:text-brand-accent transition-colors">Reception</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://www.facebook.com/shap.papaz/videos/" target="_blank" class="px-4 py-2 text-xs font-semibold rounded-lg bg-white/5 border border-white/10 hover:border-brand-accent text-white transition-all hover:bg-brand-accent/10 flex items-center gap-2">
+                    <i class="fa-brands fa-facebook-f text-brand-accent"></i> Watch Field Reports
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card/95 border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block text-gray-300 hover:text-brand-accent py-2 border-b border-white/5">Overview</a>
+            <a href="#career" class="block text-gray-300 hover:text-brand-accent py-2 border-b border-white/5">Early Career</a>
+            <a href="#pillars" class="block text-gray-300 hover:text-brand-accent py-2 border-b border-white/5">Core Pillars</a>
+            <a href="#digital" class="block text-gray-300 hover:text-brand-accent py-2 border-b border-white/5">Digital Impact</a>
+            <a href="#reception" class="block text-gray-300 hover:text-brand-accent py-2">Reception</a>
+        </div>
+    </header>
+
+    <section id="about" class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-grid-pattern overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full pill-badge text-brand-accent text-xs font-semibold tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                        Independent Journalism • Mandera County
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight leading-tight">
+                        Adan Mohamed <br>
+                        <span class="gradient-text">(Shap Papaz)</span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-gray-300 font-light leading-relaxed">
+                        Independent Kenyan Investigative Journalist, Digital Creator, & Political Analyst bridging grassroots truths in Northern Kenya with national discourse.
+                    </p>
+
+                    <p class="text-sm text-gray-400 leading-relaxed max-w-2xl">
+                        Adan Mohamed is best known for his rigorous, ground-level coverage of Mandera County and the broader North Eastern region of Kenya. Transitioning from mainstream print journalism to digital broadcasting, he acts as a critical voice for regional security, socio-economic accountability, and democratic integrity.
+                    </p>
+
+                    <!-- Quick Stats Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10 max-w-lg mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-bold font-heading text-white">10+ Yrs</p>
+                            <p class="text-xs text-gray-400">Media Experience</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-bold font-heading text-brand-accent">Mandera</p>
+                            <p class="text-xs text-gray-400">Regional Focus</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-bold font-heading text-white">Grassroots</p>
+                            <p class="text-xs text-gray-400">Civic Advocacy</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Actions -->
+                    <div class="flex flex-wrap gap-4 pt-2 justify-center lg:justify-start">
+                        <a href="https://www.facebook.com/shap.papaz/videos/" target="_blank" class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-accent to-brand-blue text-black font-semibold text-sm hover:opacity-90 transition-opacity flex items-center gap-2 shadow-lg shadow-brand-accent/20">
+                            <i class="fa-brands fa-facebook"></i> Follow Facebook
+                        </a>
+                        <a href="https://www.tiktok.com/@adanmohamed351" target="_blank" class="px-6 py-3 rounded-xl glass-card text-white hover:border-brand-accent font-semibold text-sm transition-all flex items-center gap-2">
+                            <i class="fa-brands fa-tiktok"></i> TikTok Dispatch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Profile Photo Frame -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group">
+                        <!-- Background glow aura -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-accent via-brand-blue to-brand-emerald rounded-3xl blur-xl opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                        
+                        <div class="relative glass-card p-3 rounded-3xl overflow-hidden avatar-glow max-w-sm">
+                            <img src="1000435050.jpg" alt="Adan Mohamed (Shap Papaz)" class="w-full h-[420px] object-cover object-top rounded-2xl grayscale hover:grayscale-0 transition-all duration-500">
+                            
+                            <div class="mt-4 p-3 bg-brand-dark/80 rounded-xl border border-white/5 flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Adan Mohamed</h4>
+                                    <p class="text-xs text-brand-accent font-mono">@shap.papaz</p>
+                                </div>
+                                <span class="px-2.5 py-1 text-[10px] uppercase font-bold rounded bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/20">
+                                    Verified Press
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="career" class="py-20 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent">Foundational Journalism</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white mt-2">Early Career & Mainstream Media</h2>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">Rooted in institutional journalism across Kenya's frontier regions.</p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl -z-10"></div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-4 text-center md:text-left">
+                        <div class="inline-flex p-4 rounded-2xl bg-white/5 border border-white/10 text-brand-accent mb-4">
+                            <i class="fa-solid fa-newspaper text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Print & Digital Foundation</h3>
+                        <p class="text-xs text-brand-accent mt-1">Former Regional Writer</p>
+                        <a href="https://nation.africa/" target="_blank" class="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-white mt-4 underline underline-offset-4">
+                            Daily Nation Publication <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                    <div class="md:col-span-8 space-y-4 text-gray-300 text-sm leading-relaxed border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8">
+                        <p>
+                            Before establishing himself as a prominent digital brand, Mohamed built a foundational career in traditional media. He served as a regional writer for the <a href="https://nation.africa/" target="_blank" class="text-brand-accent hover:underline">Daily Nation</a>, one of East Africa's largest print and digital news publications.
+                        </p>
+                        <p>
+                            During his tenure with mainstream media, he extensively covered localized issues, communal events, and regional administration challenges in Kenya's frontier counties. This foundational period provided him with deep institutional knowledge of the clan-based political dynamics, governance hurdles, and structural issues native to the Northern corridor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pillars" class="py-20 bg-brand-card/40 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent">Journalistic Focus</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white mt-2">Investigative Focus & Pillars</h2>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">Operating at the vital intersection of regional policy, public spending, and border security.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Pillar 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent text-xl mb-6">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                        <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">Pillar 01</span>
+                        <h3 class="text-xl font-bold text-white mt-2 mb-4">Politics & Governance</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Mohamed is highly recognized for dissecting regional political frameworks. He closely tracks electoral shifts, gubernatorial contests, and legislative developments across local constituencies. Notably, his coverage includes independent analysis of prominent regional campaign trails—such as the ALFA009 political movement and major endorsements within the United Democratic Movement (UDM).
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">ALFA009</span>
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">UDM Party</span>
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">Elections</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-emerald text-xl mb-6">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <span class="text-xs font-mono text-brand-emerald uppercase tracking-wider">Pillar 02</span>
+                        <h3 class="text-xl font-bold text-white mt-2 mb-4">Socio-Economics & Accountability</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            A core aspect of Mohamed’s profile is his focus on financial transparency. Writing and broadcasting under his Shap Papaz moniker, he acts as a public watchdog monitoring county executive performance, devolution allocations, and local public service delivery—frequently inspecting facilities like the Rhamu Sub-County Hospital.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">Devolution</span>
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">Healthcare</span>
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">Rhamu Hospital</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center text-brand-blue text-xl mb-6">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <span class="text-xs font-mono text-brand-blue uppercase tracking-wider">Pillar 03</span>
+                        <h3 class="text-xl font-bold text-white mt-2 mb-4">National Security & Transnational Issues</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Operating from strategically sensitive Mandera, Mohamed provides field reporting on border stability, inter-clan tensions, and national security directives. He investigates human trafficking mechanisms and the hazardous "Tahrib" smuggling corridor impacting East African youth.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">Border Patrol</span>
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">Tahrib Route</span>
+                        <span class="px-2.5 py-1 rounded-md text-[11px] bg-white/5 text-gray-300">Mandera</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="digital" class="py-20 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-accent">Civic Empowerment</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">Digital Presence & Public Impact</h2>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                        As traditional media dynamics shifted, Mohamed successfully adapted to digital ecosystems, leveraging social channels to build a hyper-localized information agency.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        By distributing visual journalism and editorial breakdowns directly via <a href="https://www.facebook.com/shap.papaz/videos/" target="_blank" class="text-brand-accent hover:underline">Facebook</a> and <a href="https://www.tiktok.com/@adanmohamed351" target="_blank" class="text-brand-accent hover:underline">TikTok</a>, he circumvents historical media marginalization in Northern Kenya. His investigative field reports connect grassroots narratives directly to national policymakers in Nairobi.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="https://www.facebook.com/shap.papaz/videos/" target="_blank" class="glass-card p-4 rounded-xl flex items-center gap-4 hover:border-brand-accent transition-all group">
+                            <div class="w-10 h-10 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Shap Papaz Videos</p>
+                                <p class="text-xs text-gray-400">Facebook News Hub</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.tiktok.com/@adanmohamed351" target="_blank" class="glass-card p-4 rounded-xl flex items-center gap-4 hover:border-brand-accent transition-all group">
+                            <div class="w-10 h-10 rounded-lg bg-pink-500/20 text-pink-400 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">@adanmohamed351</p>
+                                <p class="text-xs text-gray-400">TikTok Dispatches</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Metrics Grid -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="glass-card p-6 rounded-2xl text-center">
+                        <div class="text-brand-accent text-3xl font-bold font-heading mb-1">Direct</div>
+                        <div class="text-white text-sm font-semibold">Civic Dialogue</div>
+                        <p class="text-xs text-gray-400 mt-2">Bypassing legacy filters to engage local communities directly.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl text-center">
+                        <div class="text-brand-emerald text-3xl font-bold font-heading mb-1">Real-Time</div>
+                        <div class="text-white text-sm font-semibold">Field Dispatches</div>
+                        <p class="text-xs text-gray-400 mt-2">Immediate ground-truth reporting from key conflict & civic zones.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl text-center col-span-2">
+                        <div class="text-brand-blue text-3xl font-bold font-heading mb-1">Bridge</div>
+                        <div class="text-white text-sm font-semibold">Mandera to Nairobi</div>
+                        <p class="text-xs text-gray-400 mt-2">Escalating Northern Kenya’s development & security concerns directly to national leadership.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="reception" class="py-20 bg-brand-card/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent">Editorial Philosophy</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white mt-2">Professional Style & Reception</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-l-brand-accent">
+                    <h3 class="text-lg font-bold text-white mb-3">Community-Sourced Intelligence</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Mohamed’s reporting style is defined by bold, on-the-scene visual layouts, community-sourced intelligence, and an analytical tone that directly confronts local leadership on resource management and civic transparency.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-l-brand-emerald">
+                    <h3 class="text-lg font-bold text-white mb-3">Essential Counter-Narrative</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        While his stringent focus on civic accountability frequently sparks robust debate among regional political factions, he is widely recognized as a crucial independent counter-narrative to official state or county press releases in the North Eastern frontier.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 bg-brand-dark py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-accent/20 border border-brand-accent/40 flex items-center justify-center font-bold text-brand-accent text-xs">
+                    SP
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-white text-sm">Adan Mohamed (Shap Papaz)</span>
+                    <p class="text-xs text-gray-500">Independent Investigative Media • Northern Kenya</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-6 text-gray-400 text-sm">
+                <a href="https://nation.africa/" target="_blank" class="hover:text-brand-accent transition-colors">Daily Nation</a>
+                <a href="https://www.facebook.com/shap.papaz/videos/" target="_blank" class="hover:text-brand-accent transition-colors">Facebook</a>
+                <a href="https://www.tiktok.com/@adanmohamed351" target="_blank" class="hover:text-brand-accent transition-colors">TikTok</a>
+            </div>
+
+            <p class="text-xs text-gray-500">
+                Inspired by <a href="https://bagovi.com/" target="_blank" class="text-gray-400 hover:underline">Bagovi Technologies</a> aesthetics.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
